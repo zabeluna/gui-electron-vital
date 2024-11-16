@@ -6,27 +6,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { GraphicsCard } from "./graphics-card"
+import { Component } from "./test-graphic"
 
 
-export function Dashboard () {
+export function GraphicsCard () {
   return(
-    <div className="ml-28 mt-5">
-      <Card className="bg-white text-black h-80">
+    <div className="ml-28 mt-3">
+<Component/>
+      <div></div>
+   <Card className="bg-white text-black h-60 mt-3">
   <CardHeader>
     <CardTitle>Card Title</CardTitle>
     <CardDescription>Card Description</CardDescription>
   </CardHeader>
   <CardContent>
-    <p> hdfjkdshfjdshfjhsdjfhsjdfhjsdhfjskdhfjksdhfjksdhfjksdhfjkshfjkshfkj</p>
+    <p>Card</p>
   </CardContent>
   <CardFooter>
     <p>Card Footer</p>
   </CardFooter>
 </Card>
+
 <div></div>
-<GraphicsCard/>
 
     </div>
+
+
   )
 }

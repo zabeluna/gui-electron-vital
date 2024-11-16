@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export function SideBarMenu() {
   return (
-    <Sidebar>
+    <Sidebar className='bg-white'>
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup />
