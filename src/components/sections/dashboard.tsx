@@ -7,6 +7,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { GraphicsCard } from "./graphics-card"
+import { Button } from "@/components/ui/button"
+
 
 
 export function Dashboard () {
@@ -18,10 +20,16 @@ export function Dashboard () {
     <CardDescription>Card Description</CardDescription>
   </CardHeader>
   <CardContent>
-    <p> hdfjkdshfjdshfjhsdjfhsjdfhjsdhfjskdhfjksdhfjksdhfjksdhfjkshfjkshfkj</p>
+
+    <div className="grid justify-end">
+      <button className="bg-green-500 rounded-md h-9 w-16"></button>
+      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
+      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
+      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
+    </div>
   </CardContent>
   <CardFooter>
-    <p>Card Footer</p>
+
   </CardFooter>
 </Card>
 <div></div>

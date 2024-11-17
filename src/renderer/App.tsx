@@ -16,7 +16,7 @@ export default function App({ children }: { children: React.ReactNode }) {
       <main>
         <SidebarTrigger />
         <Search />
-        <div className='grid grid-cols-2 ml-'>
+        <div className=''>
         <Dashboard />
 
         </div>

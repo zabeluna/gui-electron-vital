@@ -35,7 +35,7 @@ const chartConfig = {
 
 export function Component() {
   return (
-    <Card className="">
+    <Card className="w-">
       <CardHeader>
         <CardTitle>Nutrientes</CardTitle>
         <CardDescription>Nutrientes presentes no alimento</CardDescription>
