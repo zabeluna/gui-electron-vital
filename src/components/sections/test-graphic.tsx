@@ -1,6 +1,5 @@
 'use client';
 
-import { TrendingUp } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
 import {
@@ -60,7 +59,9 @@ export default function NutrientChart() {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="-mt-9"></CardFooter>
+      <CardFooter>
+        <span>hi</span>
+      </CardFooter>
     </Card>
   );
 }
