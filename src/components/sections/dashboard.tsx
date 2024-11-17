@@ -21,15 +21,15 @@ export default function Dashboard () {
   <CardContent>
 
     <div className="grid justify-end">
-      <button className="bg-green-500 rounded-md h-9 w-16"></button>
-      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
+      <button className="bg-green-400 rounded-md h-9 w-16"></button>
+      <button className="bg-green-400 rounded-md h-9 w-16 mt-2"></button>
+      <button className="bg-green-400 rounded-md h-9 w-16 mt-2"></button>
+      <button className="bg-green-400 rounded-md h-9 w-16 mt-2"></button>
     </div>
   </CardContent>
 </Card>
 <div></div>
 
-    </div>
+</div>
   );
 }
