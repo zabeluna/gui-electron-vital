@@ -2,39 +2,24 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { GraphicsCard } from "./graphics-card"
-import { Button } from "@/components/ui/button"
+} from '@/components/ui/card';
+import NutrientChart from './test-graphic';
 
-
-
-export function Dashboard () {
-  return(
-    <div className="ml-28 mt-5">
-      <Card className="bg-white text-black h-80">
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-
-    <div className="grid justify-end">
-      <button className="bg-green-500 rounded-md h-9 w-16"></button>
-      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-      <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
+export default function Dashboard() {
+  return (
+    <div className="mt-5 px-12">
+      <Card className="bg-white text-black w-[500px]">
+        <CardHeader>
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>Card Description</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <span>here</span>
+        </CardContent>
+      </Card>
+      <NutrientChart />
     </div>
-  </CardContent>
-  <CardFooter>
-
-  </CardFooter>
-</Card>
-<div></div>
-<GraphicsCard/>
-
-    </div>
-  )
+  );
 }

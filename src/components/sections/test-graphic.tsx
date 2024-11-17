@@ -33,9 +33,9 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function Component() {
+export default function NutrientChart() {
   return (
-    <Card className="w-">
+    <Card className="w-40">
       <CardHeader>
         <CardTitle>Nutrientes</CardTitle>
         <CardDescription>Nutrientes presentes no alimento</CardDescription>
@@ -50,7 +50,7 @@ export function Component() {
               tickMargin={10}
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
-              className=''
+              className=""
             />
             <ChartTooltip
               cursor={false}
