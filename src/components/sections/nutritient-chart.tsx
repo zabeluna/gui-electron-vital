@@ -34,7 +34,7 @@ const chartConfig = {
 
 export default function NutrientChart() {
   return (
-    <Card className="w-[500px]">
+    <Card className="w-[400px]">
       <CardHeader>
         <CardTitle>Nutrientes</CardTitle>
         <CardDescription>Nutrientes presentes no alimento</CardDescription>
@@ -46,7 +46,7 @@ export default function NutrientChart() {
             <XAxis
               dataKey="month"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={1}
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
               className=""
@@ -59,9 +59,7 @@ export default function NutrientChart() {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter>
-        <span>hi</span>
-      </CardFooter>
+      <CardFooter></CardFooter>
     </Card>
   );
 }
