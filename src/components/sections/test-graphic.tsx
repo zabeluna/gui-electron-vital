@@ -35,7 +35,7 @@ const chartConfig = {
 
 export default function NutrientChart() {
   return (
-    <Card className="w-40">
+    <Card className="w-[500px]">
       <CardHeader>
         <CardTitle>Nutrientes</CardTitle>
         <CardDescription>Nutrientes presentes no alimento</CardDescription>
