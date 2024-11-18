@@ -3,7 +3,7 @@ import './App.css';
 import 'tailwindcss/tailwind.css';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { SideBarMenu } from '@/components/sections/sidebar-menu';
-import { Search } from '@/components/sections/search';
+import { Search } from '@/components/sections/search-bar';
 import { ReactNode } from 'react';
 import Dashboard from '@/components/sections/dashboard';
 
@@ -13,7 +13,6 @@ export default function App({ children }: { children: ReactNode }) {
       <SideBarMenu />
       <main>
         <SidebarTrigger />
-        <Search />
         <Dashboard />
       </main>
     </SidebarProvider>

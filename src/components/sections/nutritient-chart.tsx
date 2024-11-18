@@ -16,14 +16,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
-const chartData = [
-  { month: 'nutriente', desktop: 186 },
-  { month: 'nutriente', desktop: 305 },
-  { month: 'nutriente', desktop: 237 },
-  { month: 'nutriente', desktop: 73 },
-  { month: 'nutriente', desktop: 209 },
-  { month: 'nutriente', desktop: 214 },
-];
+import { useEffect, useState } from 'react';
 
 const chartConfig = {
   desktop: {
@@ -32,7 +25,17 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export default function NutrientChart() {
+type NutrientChartProps = {
+  chartData: any;
+};
+
+export default function NutrientChart({ chartData }: NutrientChartProps) {
+  const [data, setData] = useState(chartData || undefined);
+
+  useEffect(() => {
+    setData(chartData);
+  }, [chartData]);
+
   return (
     <Card className="w-[400px]">
       <CardHeader>
@@ -41,21 +44,20 @@ export default function NutrientChart() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart accessibilityLayer data={data}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="name"
               tickLine={false}
               tickMargin={1}
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
-              className=""
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8} />
+            <Bar dataKey="amt" fill="var(--color-desktop)" radius={8} />
           </BarChart>
         </ChartContainer>
       </CardContent>

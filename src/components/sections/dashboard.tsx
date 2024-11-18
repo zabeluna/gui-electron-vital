@@ -6,32 +6,84 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import NutrientChart from './nutritient-chart';
-import VitaminaChart from './vitaminas-chart';
 import { Calendar } from '../ui/calendar';
-import { useState } from 'react';
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { Input } from '../ui/input';
+import { foods as mockFoods } from 'constants/foods';
+import RowResult from '../feature/search/row';
+import VitaminsList from './vitamins-list';
+import IngradientList from './ingredient-list';
 
 export default function Dashboard() {
   const [date, setDate] = useState<Date | undefined>(undefined);
+  const [data, setData] = useState<any | undefined>(undefined);
+  const [search, setSearch] = useState<string>('');
+  const [foods, setFoods] = useState(mockFoods);
+  const [selectedFood, setSelectedFood] = useState<number | null>(null);
+  const [nutrientData, setNutrientData] = useState<any>(null);
+  const [vitaminsData, setVitaminsData] = useState<any>(null);
+  const [ingredientsData, setIngredientsData] = useState<any>(null);
+
+  useEffect(() => {
+    if (selectedFood) {
+      const selectedFoodData = mockFoods.find(
+        (food) => selectedFood! === food.id,
+      );
+
+      if (selectedFoodData) {
+        setNutrientData(selectedFoodData.nutrients);
+        setVitaminsData(selectedFoodData.vitamins);
+        setIngredientsData(selectedFoodData.ingredients);
+      }
+    }
+  }, [selectedFood]);
+
+  const onSearchChange = (event: any) => {
+    const value = event.target.value;
+    setSearch(value);
+
+    if (value) {
+      const filteredArr = foods.filter((food) => {
+        return food.name.toLowerCase().includes(value);
+      });
+
+      setFoods(filteredArr);
+      return;
+    }
+
+    setFoods(mockFoods);
+  };
 
   return (
-    <div className="px-12 mt-5 ml-16 w-full">
+    <div className="px-12 mt-5 ml-16">
+      <Input
+        placeholder="Pesquisa de alimento"
+        className="mb-3"
+        value={search}
+        onChange={onSearchChange}
+      />
       <div className="flex">
-        <Card className="bg-white text-black h-80 w-[900px]">
+        <Card className="bg-white text-black w-[900px]">
           <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
+            <CardTitle>Comidas</CardTitle>
+            <CardDescription>
+              Explore nosso catalogo de alimentos
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid justify-end">
-              <button className="bg-green-500 rounded-md h-9 w-16"></button>
-              <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-              <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-              <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
+            <div className="flex flex-col overflow-y-auto gap-y-1 max-h-80 ">
+              {foods.map((food) => (
+                <RowResult
+                  name={food.name}
+                  key={food.id}
+                  onClick={() => setSelectedFood(food.id)}
+                  selectedFood={selectedFood === food.id}
+                />
+              ))}
             </div>
           </CardContent>
         </Card>
-        <Card className="ml-3 h-[320px]">
+        <Card className="ml-3">
           <CardHeader className="text-2xl font-bold">Calendário</CardHeader>
           <CardContent>
             <Calendar
@@ -52,22 +104,9 @@ export default function Dashboard() {
         </Card>
       </div>
       <div className="flex space-x-3 mt-3">
-        <NutrientChart />
-        <VitaminaChart />
-        <Card className="bg-white text-black w-[630px]">
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid justify-end">
-              <button className="bg-green-500 rounded-md h-9 w-16"></button>
-              <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-              <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-              <button className="bg-green-500 rounded-md h-9 w-16 mt-2"></button>
-            </div>
-          </CardContent>
-        </Card>
+        <NutrientChart chartData={nutrientData} />
+        <VitaminsList vitaminsData={vitaminsData} />
+        <IngradientList ingredients={ingredientsData} />
       </div>
     </div>
   );
