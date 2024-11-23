@@ -13,8 +13,8 @@ import { foods as mockFoods } from 'constants/foods';
 import RowResult from '../feature/search/row';
 import VitaminsList from './vitamins-list';
 import IngradientList from './ingredient-list';
-import Register from './add-aliment';
 import AddAliment from './add-aliment';
+import FoodForm from './add-aliment';
 
 export default function Dashboard() {
   const [date, setDate] = useState<Date | undefined>(undefined);
@@ -86,9 +86,11 @@ export default function Dashboard() {
           </CardContent>
         </Card>
         <Card className="ml-3">
-          <CardHeader className="text-2xl font-bold">Cadastro de Alimento</CardHeader>
+          <CardHeader className="text-2xl font-bold">
+            Cadastro de Alimento
+          </CardHeader>
           <CardContent>
-            <AddAliment/>
+            <FoodForm />
           </CardContent>
         </Card>
       </div>
