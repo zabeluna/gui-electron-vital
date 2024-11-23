@@ -6,12 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import NutrientChart from './nutrientes-chart';
-
+import NutrientChart from './nutritient-chart';
 export function GraphicsCard() {
   return (
     <div className="mt-3">
-      <NutrientChart />
+      <NutrientChart/>
       <div></div>
 
       <div></div>

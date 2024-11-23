@@ -13,6 +13,8 @@ import { foods as mockFoods } from 'constants/foods';
 import RowResult from '../feature/search/row';
 import VitaminsList from './vitamins-list';
 import IngradientList from './ingredient-list';
+import Register from './add-aliment';
+import AddAliment from './add-aliment';
 
 export default function Dashboard() {
   const [date, setDate] = useState<Date | undefined>(undefined);
@@ -84,22 +86,9 @@ export default function Dashboard() {
           </CardContent>
         </Card>
         <Card className="ml-3">
-          <CardHeader className="text-2xl font-bold">Calendário</CardHeader>
+          <CardHeader className="text-2xl font-bold">Cadastro de Alimento</CardHeader>
           <CardContent>
-            <Calendar
-              mode="single"
-              selected={date}
-              onSelect={setDate}
-              className="h-full w-full flex"
-              classNames={{
-                months:
-                  'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 flex-1',
-                month: 'space-y-4 w-full flex flex-col',
-                table: 'w-full h-full border-collapse space-y-1',
-                head_row: '',
-                row: 'w-full mt-2',
-              }}
-            />
+            <AddAliment/>
           </CardContent>
         </Card>
       </div>
